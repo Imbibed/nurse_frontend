@@ -1,0 +1,141 @@
+body {
+    font-family: 'allerbold', sans-serif;
+    margin: 4px;
+    background: var(--calendar-background);
+    max-width: 767px;
+}
+
+#form-config {
+    background-color: var(--nes-light-blue);
+    border-radius: 64px;
+    padding: 8px;
+}
+
+#form-config h1 {
+    margin: 0;
+    text-align: center;
+    color: var(--header-text);
+}
+
+#form-config div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#form-config div div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#calendar-container {
+    margin: 16px 0 8px 0;
+    border: 1px solid var(--days-border);
+    padding: 0 4px 0 4px;
+}
+
+#calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+#calendar-header label {
+    aspect-ratio: 2/1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: var(--nes-black-text);
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    padding-bottom: 8px;
+}
+
+#calendar .calendar-day {
+    display: flex;
+    flex-direction: row;
+    padding:4px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--days-border);
+    border-radius: 16px;
+}
+
+.selected {
+    border: 3px solid yellow !important;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
+}
+
+.clickable:active {
+    transform: scale(0.95);
+}
+
+#calendar .calendar-day label {
+    color: var(--nes-black-text);
+}
+
+#toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 8px;
+    margin: 0 0 8px 0;
+    border: 1px solid var(--days-border);
+    border-radius: 64px;
+    background-color: var(--nes-light-blue);
+}
+
+#toolbar button {
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+}
+
+.day-color {
+    background-color: var(--allday-available);
+}
+.morning-color {
+    background-color: var(--morning-available);
+}
+.after-noon {
+    background-color: var(--afternoon-available);
+}
+.unavailable {
+    background-color: var(--none-available);
+}
+
+#toolbar #user-hint {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#send-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--nes-light-blue);
+    border-radius: 64px;
+    padding: 8px;
+}
+
+#send-button button {
+    height: 42px;
+    width: 35%;
+    background-color: var(--nes-dark-blue);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-family: "allerregular";
+}

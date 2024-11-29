@@ -1,0 +1,36 @@
+:root {
+
+    @font-face {
+        font-family: 'allerregular';
+        src: url('../assets/fonts/aller.regular.ttf') format('truetype');;
+    }
+
+    @font-face {
+        font-family: 'allerbold';
+        src: url('../assets/fonts/aller.bold.ttf') format('truetype');;
+    }
+
+    --morning-available: #2E7D32;
+    --afternoon-available: #6D071A;
+    --allday-available: #1E3A8A;
+    --none-available: #757575;
+
+    --calendar-background: #F5F5F5;
+    --days-text: #333333;
+    --days-border: #DDDDDD;
+    --header-background: #3F51B5;
+    --header-text: #FFFFFF;
+
+    --nes-light-blue: #58bfc5;
+    --nes-dark-blue: #2323b8;
+    --nes-blue-text: #132e60;
+    --nes-grey-background: #e0e0dd;
+    --nes-black-text: #353535;
+
+    --nes-yellow: #FFD700;
+    --nes-light-green: #3AA76D;
+    --nes-red: #C93C3C;
+    --nes-purple: #A57CDB;
+    --nes-light-orange: #F28500;
+    --nes-grey: #8C8474;
+}
