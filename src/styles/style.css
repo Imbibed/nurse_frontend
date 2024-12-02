@@ -62,10 +62,28 @@ body {
 #calendar .calendar-day {
     display: flex;
     flex-direction: row;
+    position: relative;
     padding:4px;
     aspect-ratio: 1 / 1;
     border: 1px solid var(--days-border);
     border-radius: 16px;
+}
+
+#calendar .calendar-day label {
+    font-weight: bold;
+    padding: 4px;
+}
+
+#calendar .calendar-day .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .selected {

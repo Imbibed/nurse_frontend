@@ -32,8 +32,10 @@ monthAndYearFilterValueSubject.subscribe({
     error: err => console.error(err)
 })
 
-const selectCurrentDay = () => {
-
+const selectCurrentDay = (elem) => {
+    if(elem){
+        selectedDaySubject.next(elem);
+    }
 }
 
 (function() {
@@ -70,9 +72,7 @@ const selectCurrentDay = () => {
     //  fill calendar header
     setupCalendarHeader();
 
-    //  fill calendar form
-    configForm(getMonthAndYearFilterValue().month, getMonthAndYearFilterValue().year);
-
     //  Select current day
-    selectCurrentDay()
+    const currentDayOfMonthFromCalendar = document.getElementById(`day-${now.getDate()}`);
+    selectCurrentDay(currentDayOfMonthFromCalendar);
 })()

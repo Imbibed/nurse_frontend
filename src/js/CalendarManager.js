@@ -42,34 +42,21 @@ export const configForm = (month, year) => {
             div.classList.add('clickable');
             div.setAttribute('id', `day-${d}`);
             const label1 = document.createElement('label');
+            label1.setAttribute('id',`day-${d}-label`);
             label1.appendChild(
                 document.createTextNode(`${date.getDate()}`)
             );
             div.appendChild(label1);
+            div.addEventListener('click', (event => {
+                selectedDaySubject.next(event.currentTarget);
+            }));
+            const overlay = document.createElement('div');
+            overlay.setAttribute('id', `day-${d}-overlay`);
+            overlay.setAttribute('class', `overlay`);
+            div.appendChild(overlay);
             d++;
         }
-        div.addEventListener('click', (event => {
-            selectedDaySubject.next(event.target);
-        }));
+        
         form.appendChild(div);
     });
 }
-
-/*export const refreshForm = (elem) => {
-    const form = document.getElementById('calendar');
-    
-    //  clean calendar form
-    while(form.firstChild){
-        form.removeChild(form.firstChild);
-    }
-
-    //  setup global variable
-    if(elem.getAttribute('id') === 'month-filter') {
-        monthFilterValue = document.getElementById('month-filter').value;
-    } else {
-        yearFilterValue = document.getElementById('year-filter').value;
-    }
-
-    //  fill calendar form
-    configForm(monthFilterValue, yearFilterValue);
-}*/

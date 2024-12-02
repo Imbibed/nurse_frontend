@@ -6,18 +6,25 @@ const setValue = (elem) => {
     const vals = toolbar_buttons.map(({id}) => id);
     const btn = toolbar_buttons.filter(b => b.id === val)[0];
     if(vals.includes(val)) {
+        const selectedDayElem = getSelectedDay();
+        const overlayElem = document.getElementById(`${selectedDayElem.getAttribute('id')}-overlay`);
+        const labelElem = document.getElementById(`${selectedDayElem.getAttribute('id')}-label`);
         if(val === 'day') {
-            getSelectedDay().setAttribute('class','calendar-day clickable day-color');
-            getSelectedDay().appendChild(addAvailabilityIcon(btn.img));
+            selectedDayElem.setAttribute('class','calendar-day clickable day-color');
+            labelElem.style.color = 'white';
+            overlayElem.appendChild(addAvailabilityIcon(btn.img));
         } else if (val === 'morning') {
-            getSelectedDay().setAttribute('class','calendar-day clickable morning-color');
-            getSelectedDay().appendChild(addAvailabilityIcon(btn.img));
+            selectedDayElem.setAttribute('class','calendar-day clickable morning-color');
+            labelElem.style.color = 'white';
+            overlayElem.appendChild(addAvailabilityIcon(btn.img));
         } else if (val === 'after-noon') {
-            getSelectedDay().setAttribute('class','calendar-day clickable after-noon');
-            getSelectedDay().appendChild(addAvailabilityIcon(btn.img));
+            selectedDayElem.setAttribute('class','calendar-day clickable after-noon');
+            labelElem.style.color = 'white';
+            overlayElem.appendChild(addAvailabilityIcon(btn.img));
         } else {
-            getSelectedDay().setAttribute('class','calendar-day clickable unavailable');
-            getSelectedDay().appendChild(addAvailabilityIcon(btn.img));
+            selectedDayElem.setAttribute('class','calendar-day clickable unavailable');
+            labelElem.style.color = 'white';
+            overlayElem.appendChild(addAvailabilityIcon(btn.img));
         }
     } else {
         console.error('La valeur est mauvaise');
