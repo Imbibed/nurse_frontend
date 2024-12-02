@@ -1,15 +1,5 @@
 :root {
 
-    @font-face {
-        font-family: 'allerregular';
-        src: url('../assets/fonts/aller.regular.ttf') format('truetype');;
-    }
-
-    @font-face {
-        font-family: 'allerbold';
-        src: url('../assets/fonts/aller.bold.ttf') format('truetype');;
-    }
-
     --morning-available: #2E7D32;
     --afternoon-available: #6D071A;
     --allday-available: #1E3A8A;

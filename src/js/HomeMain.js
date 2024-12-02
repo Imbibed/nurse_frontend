@@ -73,6 +73,8 @@ const selectCurrentDay = (elem) => {
     setupCalendarHeader();
 
     //  Select current day
+    //  TODO if allowed to get the page with other date than today
+    //  don't select current day
     const currentDayOfMonthFromCalendar = document.getElementById(`day-${now.getDate()}`);
     selectCurrentDay(currentDayOfMonthFromCalendar);
 })()

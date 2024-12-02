@@ -1,6 +1,15 @@
 import { daysOfTheWeekToString  } from "./GlobalVar";
 import {selectedDaySubject} from "./HomeMain-Service";
 
+Date.prototype.isLocalDateAfterOrEqual = function(date) {
+    if (!(date instanceof Date)) {
+        throw new TypeError('L’argument doit être une instance de Date');
+    }
+    const thisDate = new Date(this.getFullYear(), this.getMonth(), this.getDate());
+    const otherDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    return thisDate.getTime() >= otherDate.getTime();
+}
+
 export const initDaysInMonthRange = (month , year) => {
     const daysOfMonth = [];
     //  to be sure month and year are numbers instead of this month + 1 = 111
@@ -31,15 +40,14 @@ export const setupCalendarHeader = () => {
 
 export const configForm = (month, year) => {
     const daysOfMonth = initDaysInMonthRange(month, year);
-    
+    const now = new Date();
     const form = document.getElementById('calendar');
     let d = 1;
-    daysOfMonth.forEach( (date, index) => {
+    daysOfMonth.forEach( (date) => {
         const div = document.createElement('div');
 
         div.setAttribute('class', 'calendar-day');
         if(date !== null){
-            div.classList.add('clickable');
             div.setAttribute('id', `day-${d}`);
             const label1 = document.createElement('label');
             label1.setAttribute('id',`day-${d}-label`);
@@ -47,9 +55,16 @@ export const configForm = (month, year) => {
                 document.createTextNode(`${date.getDate()}`)
             );
             div.appendChild(label1);
-            div.addEventListener('click', (event => {
-                selectedDaySubject.next(event.currentTarget);
-            }));
+            
+            let askedDate = new Date(year, month, d);
+
+            if(askedDate.isLocalDateAfterOrEqual(now)) {
+                div.classList.add('clickable');
+                div.addEventListener('click', (event => {
+                    selectedDaySubject.next(event.currentTarget);
+                }));
+            }
+
             const overlay = document.createElement('div');
             overlay.setAttribute('id', `day-${d}-overlay`);
             overlay.setAttribute('class', `overlay`);

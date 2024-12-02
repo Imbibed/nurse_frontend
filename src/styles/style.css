@@ -1,5 +1,5 @@
 body {
-    font-family: 'allerbold', sans-serif;
+    font-family: 'Verdana', sans-serif;
     margin: 4px;
     background: var(--calendar-background);
     max-width: 767px;
@@ -31,9 +31,35 @@ body {
 }
 
 #calendar-container {
+    position: relative;
     margin: 16px 0 8px 0;
     border: 1px solid var(--days-border);
     padding: 0 4px 0 4px;
+}
+
+#calendar-background {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: var(--calendar-background);
+    z-index: -1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendar-background :nth-child(1),
+#calendar-background :nth-child(2),
+#calendar-background :nth-child(3),
+#calendar-background :nth-child(4), 
+#calendar-background :nth-child(5) {
+    background-color: rgba(242, 133, 0, 0.3);
+}
+
+#calendar-background :nth-child(6), 
+#calendar-background :nth-child(7) {
+    background-color: rgba(88, 191, 197, 0.3);
 }
 
 #calendar-header {
@@ -67,6 +93,7 @@ body {
     aspect-ratio: 1 / 1;
     border: 1px solid var(--days-border);
     border-radius: 16px;
+    box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.5)
 }
 
 #calendar .calendar-day label {
@@ -92,10 +119,12 @@ body {
 
 .clickable:hover {
     transform: scale(1.05);
+    box-shadow: 3px 3px 10px 3px rgba(0,0,0,0.5)
 }
 
 .clickable:active {
     transform: scale(0.95);
+    box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.5)
 }
 
 #calendar .calendar-day label {
@@ -155,5 +184,5 @@ body {
     border-radius: 6px;
     color: white;
     font-weight: bold;
-    font-family: "allerregular";
+    font-family: 'Verdana', sans-serif;
 }
